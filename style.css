@@ -1,0 +1,142 @@
+body {
+    font-family: 'Sukhumvit Set', Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #1e3a5f;
+}
+
+.main-layout {
+   
+}
+
+.calculator-panel {
+    background-color: #007bff; 
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header-image {
+    text-align: center;
+    margin-bottom: 30px;
+ 
+    font-size: 14px;
+}
+
+.input-group, .input-group-inline {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+
+
+.input-group-inline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+.input-group-inline label {
+    flex: 1;
+    font-size: 14px;
+    opacity: 0.8;
+}
+.input-group-inline input {
+    flex: 1;
+    text-align: right;
+    font-size: 24px;
+}
+
+.result-display {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 30px;
+}
+
+.result-display p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.final-amount {
+    font-size: 36px;
+    font-weight: 900;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    color: #007bff;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #e9ecef;
+}
+
+
+.summary-data {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    padding: 10px;
+}
+.summary-data span {
+    font-weight: bold;
+    color: #1e3a5f;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+.legend-item {
+    margin: 0 15px;
+    position: relative;
+    padding-left: 20px;
+}
+.legend-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+.legend-item.principal::before {
+    background-color: rgba(0, 123, 255, 0.8);
+}
+.legend-item.interest::before {
+    background-color: rgba(255, 159, 64, 0.8);
+}

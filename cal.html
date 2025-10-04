@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เครื่องคำนวณเงินออมและดอกเบี้ยทบต้น</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* CSS ภายในเพื่อจัดเลย์เอาต์ 2 คอลัมน์ */
+        .main-layout {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .calculator-panel {
+            flex: 1;
+            padding-right: 40px;
+        }
+        .chart-panel {
+            flex: 1.5;
+            min-width: 450px; /* กำหนดขนาดขั้นต่ำให้กราฟ */
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <div class="calculator-panel calculator-container">
+            <div class="header-image"></div>
+
+            <div class="input-group">
+                <label for="initial_principal">เงินต้นเริ่มต้น (PV):</label>
+                <input type="number" id="initial_principal" value="0" min="0">
+            </div>
+            
+            <div class="input-group-inline">
+                <label for="years">ระยะเวลา (ปี):</label>
+                <input type="number" id="years" value="0" min="1">
+            </div>
+            
+            <div class="input-group">
+                <label for="monthly_contribution">จำนวนเงินที่ต้องการออม (ต่อเดือน P):</label>
+                <input type="number" id="monthly_contribution" value="0" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="rate">อัตราดอกเบี้ยต่อปี (%):</label>
+                <input type="number" id="rate" value="0" min="0" step="0.01">
+            </div>
+            
+            <div class="result-display">
+                <p>มูลค่ารวม ณ สิ้นสุดระยะเวลา:</p>
+                <div class="final-amount" id="final-amount-display">0.00 บาท</div>
+            </div>
+
+            <button onclick="calculateAndPlot()">คำนวณ</button>
+        </div>
+
+        <div class="chart-panel">
+            <canvas id="savingsChart"></canvas>
+            
+            <div class="summary-data">
+                <p>เงินรวม (รวมเงินฝากรายเดือน): <span id="total-money">0.00</span> | เงินต้นรวมที่ฝาก: <span id="total-principal">0.00</span></p>
+                <p>ดอกเบี้ยรวมที่ได้รับ: <span id="total-interest">0.00</span></p>
+                
+                <p style="margin-top: 10px; border-top: 1px solid #ccc; padding-top: 5px;">มูลค่าในอนาคต (เฉพาะเงินต้นเริ่มต้น): <span id="compound-interest-only-pv">0.00</span></p>
+                
+                <div class="legend">
+                    <span class="legend-item principal">เงินต้น</span>
+                    <span class="legend-item interest">ดอกเบี้ย</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // เรียกใช้ฟังก์ชันคำนวณเมื่อโหลดหน้าครั้งแรก
+        document.addEventListener('DOMContentLoaded', calculateAndPlot);
+    </script>
+</body>
+</html>
